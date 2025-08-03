@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <a href="/login">ログイン</a>
+    <a href="/logout">ログアウト</a>
+    <a href="/signup">会員登録</a><br>
+    <a href="/groups">グループ一覧</a>
+    <a href="/groups/create">グループ作成</a>
+    <a href="/weights">体重記録</a><br>
+    <a href="/my-groups">所属グループ一覧</a><br>
+
+    <form method="post" action="/update-goal">
+        <label for="goal_weight">目標体重:</label>
+        <input type="number" step="0.1" name="goal_weight" id="goal_weight" required>
+        <button type="submit">更新</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/get-goal')
+                .then(response => response.json())
+                .then(data => {
+                    const goalInput = document.getElementById('goal_weight');
+                    if (goalInput && data.goal_weight !== null) {
+                        goalInput.value = data.goal_weight;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

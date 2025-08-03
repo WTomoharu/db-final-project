@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+    <h2 class="mb-4">こんにちは、{{ username }} さん！</h2>
+    {% if username %}
+        <a href="/weights" class="btn btn-primary mb-2 w-100">体重記録</a>
+        <a href="/groups" class="btn btn-primary mb-2 w-100">グループ</a>
+        <a href="/me" class="btn btn-primary mb-2 w-100">マイページ</a>
+        <form method="post" action="/logout" class="w-100">
+            <button class="btn btn-danger w-100 mb-2" type="submit">ログアウト</button>
+        </form>
+    {% else %}
+        <a href="/login" class="btn btn-primary mb-2 w-100">ログイン</a>
+        <a href="/signup" class="btn btn-success mb-2 w-100">新規登録</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>ようこそ、{{ username }} さん！</h1>
+<p>こちらはあなたのマイページです。</p>
+<form method="post" action="/me/goal_weight" class="mb-4">
+    <label for="goal_weight">目標体重:</label>
+    <input type="number" id="goal_weight" name="goal_weight" value="{{ user.goal_weight }}" step="0.1" required>
+    <button class="btn btn-success" type="submit">更新</button>
+</form>
+<div class="d-flex gap-2">
+    <a href="/" class="btn btn-primary">トップページへ戻る</a>
+    <form method="post" action="/logout">
+        <button class="btn btn-danger" type="submit">ログアウト</button>
+    </form>
+</div>
+{% endblock %}

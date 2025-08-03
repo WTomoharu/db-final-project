@@ -1,0 +1,24 @@
+# Python関連
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 環境関連
+.env
+.venv
+venv/
+ENV/
+
+# エディタ関連
+.vscode/
+.idea/
+
+# OS関連
+.DS_Store
+
+# その他
+output.txt
+*.log
+*.sqlite3
+dev

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>みんなで体重管理アプリ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">みんなで体重管理アプリ</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/weights">体重記録</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/groups">グループ</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    {% if request.session.username %}
+                        <li class="nav-item"><form method="post" action="/logout"><button class="btn btn-outline-danger" type="submit">ログアウト</button></form></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/signup">新規登録</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">所属グループ一覧</h1>
+    <ul class="list-group">
+        {% for group in groups %}
+        <li class="list-group-item">
+            <a href="/groups/{{ group.id }}">{{ group.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/groups/create" class="btn btn-primary mt-3">グループ作成</a>
+    <a href="/" class="btn btn-secondary mt-3">ホームに戻る</a>
+</div>
+{% endblock %}

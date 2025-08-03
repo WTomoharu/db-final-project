@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">グループ作成</h1>
+    <form action="/groups/create" method="post" class="mt-4">
+        <div class="form-group mb-4">
+            <label for="name">グループ名:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">作成</button>
+    </form>
+    <a href="/groups" class="btn btn-secondary mt-3">グループ一覧に戻る</a>
+</div>
+{% endblock %}

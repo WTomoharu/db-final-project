@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">会員登録</h1>
+    <form method="post" action="/signup" class="mt-4">
+        <div class="form-group mb-4">
+            <label for="username">ユーザー名:</label>
+            <input type="text" name="username" id="username" class="form-control" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="password">パスワード:</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">
+            登録
+        </button>
+    </form>
+    <a href="/login" class="btn btn-link mt-3 d-block text-center">
+        ログイン画面に戻る
+    </a>
+</div>
+{% endblock %}
