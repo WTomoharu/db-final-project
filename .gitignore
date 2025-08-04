@@ -20,5 +20,6 @@ ENV/
 # その他
 output.txt
 *.log
-*.sqlite3
 dev
+*.md
+!README.md
